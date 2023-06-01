@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+
+    people-gender-age-training:
+        build: ./deep_learning/
+        image: people-gender-age-training
+        container_name: people-gender-age-training
+        runtime: nvidia
+        # !df -k -BM /dev/shm
+        # Dataloader num_workers > 1
+        shm_size: 2gb
+        restart: always
+        environment:
+            - CUDA_LAUNCH_BLOCKING=1
+        ports:
+            - "8090-8099:8090-8099" # jupyter ports
+        volumes:
+            - ./:/home/jasseur/people_gender_age/
+        tty: true

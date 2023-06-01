@@ -1,0 +1,5 @@
+__pycache__/
+checkpoint/
+log/
+*.pth
+*.mp4

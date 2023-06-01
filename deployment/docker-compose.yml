@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+
+    people-gender-age-deployment:
+        build: ./
+        image: people-gender-age-deployment
+        container_name: people-gender-age-deployment
+        runtime: nvidia
+        restart: always
+        security_opt:
+            - seccomp:unconfined # debug cuda
+        ports:
+            - "8554:8554"
+            - "2223:22"
+        volumes:
+            - ./:/home/username/people_gender_age/
+        tty: true

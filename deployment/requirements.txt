@@ -1,0 +1,5 @@
+scipy
+#opencv-python (Does not work)
+pytest
+lap
+kafka-python
